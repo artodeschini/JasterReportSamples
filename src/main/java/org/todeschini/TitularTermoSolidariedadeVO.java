@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class TitularTermoSolidariedadeVO implements Serializable {
 
+    private String name;
     private String cpf;
 
     public TitularTermoSolidariedadeVO() {
@@ -20,5 +21,13 @@ public class TitularTermoSolidariedadeVO implements Serializable {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

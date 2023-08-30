@@ -1,14 +1,17 @@
 package org.example;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-public class TermoVO implements Serializable {
+public class TermoSolidariedadeVO implements Serializable {
 
     private String conta = "";
     private Date dataLocalizacao;
     private String local = "";
-    private String cpf;
+
+    private List<TitularTermoSolidariedadeVO> titulares = new ArrayList<>();
 
     public String getConta() {
         return conta;
@@ -34,11 +37,11 @@ public class TermoVO implements Serializable {
         this.local = local;
     }
 
-    public String getCpf() {
-        return cpf;
+    public List<TitularTermoSolidariedadeVO> getTitulares() {
+        return titulares;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setTitulares(List<TitularTermoSolidariedadeVO> titulares) {
+        this.titulares = titulares;
     }
 }

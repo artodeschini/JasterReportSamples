@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TermoSolidariedade" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="495" leftMargin="50" rightMargin="50" topMargin="20" bottomMargin="20" uuid="aa63231f-e581-429d-9a0a-cbaa1d9dd9d9">
+	<property name="ireport.zoom" value="1.331000000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="368"/>
+	<subDataset name="Table Dataset 1" uuid="69042cb1-3789-49b8-9199-dabafe890ed4"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\f566348\\Desktop\\Relatorio\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="LOGO" class="java.lang.Object"/>
+	<parameter name="subAssinaturas" class="net.sf.jasperreports.engine.JasperReport"/>
+	<field name="conta" class="java.lang.String"/>
+	<field name="dataAbertura" class="java.util.Date"/>
+	<field name="local" class="java.lang.String"/>
+	<field name="titulares" class="java.util.List">
+		<fieldDescription><![CDATA[titulares]]></fieldDescription>
+	</field>
+	<field name="dataLocalizacao" class="java.util.Date"/>
+	<variable name="indicaAdesaoAvalEmergCart" class="java.lang.String">
+		<variableExpression><![CDATA[$V{indicaAdesaoAvalEmergCart}.concat(";"+$V{indicaAdesaoAvalEmergCart})]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<variable name="produtosContratados" class="java.lang.String">
+		<variableExpression><![CDATA[$V{produtosContratados}.concat($V{produtosContratados})]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="48" splitType="Stretch">
+			<printWhenExpression><![CDATA[$V{PAGE_NUMBER} < 9]]></printWhenExpression>
+			<image>
+				<reportElement x="0" y="0" width="90" height="45" uuid="e58441d2-503e-4e15-9997-91cbee1f6a3b"/>
+				<imageExpression><![CDATA[$P{LOGO}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="97" y="0" width="397" height="37" uuid="cbf4a69a-8018-4b2a-aaa9-9dcece0a64c3"/>
+				<textElement>
+					<font fontName="Arial" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Termo de Solidariedade]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="143">
+			<staticText>
+				<reportElement x="335" y="15" width="159" height="15" uuid="b151b069-d471-4571-943d-149064d641f4"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[#INTERNO.TODOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="335" y="1" width="159" height="15" uuid="56258f0f-bae5-45d6-8f2e-d97439ed6635"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Grau de sigilo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1" y="49" width="494" height="93" uuid="aedb9d00-8610-40c6-a023-4039d6490339"/>
+				<box topPadding="2" leftPadding="3">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["A integralidade do saldo da conta conjunta " + new String($F{conta}) + " poderá ser movimentada isoladamente por qualquer de seus titulares, credores do valor total do depósito, de forma solidária, nos termos dos Artigos 264 e seguintes e Artigo 639 do Código Civil Brasileiro."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="57">
+			<textField isBlankWhenNull="true">
+				<reportElement x="218" y="10" width="36" height="27" uuid="ba3f3fe2-e01d-43a7-9286-defcd15e5ace"/>
+				<box topPadding="2" leftPadding="1">
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd").format($F{dataLocalizacao})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="-1" y="10" width="210" height="27" uuid="fe075e6f-1174-4d35-98f6-7bb02e9e0e27">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box topPadding="5" leftPadding="0">
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{local}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="282" y="10" width="128" height="27" uuid="5e6a98d5-11e1-4f7e-aae7-d2fd25fe108c"/>
+				<box topPadding="2" leftPadding="1">
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("MMMM", new Locale("pt", "BR")).format($F{dataLocalizacao}).toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="441" y="10" width="54" height="27" uuid="fa74e57c-9ab4-4f01-a26a-f097570bc56b"/>
+				<box topPadding="2" leftPadding="1">
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("yyyy").format($F{dataLocalizacao})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="258" y="24" width="24" height="15" uuid="816e6eaa-dcb3-4de3-9357-ab4990186f72"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[de   ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="37" width="100" height="15" uuid="d411e3ea-5abe-411c-bf0b-13dfaa796078">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[LOCAL/DATA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="417" y="24" width="24" height="15" uuid="9757c545-7b7f-4850-be1e-3d270bbc22a9"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[de   ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="24" width="5" height="15" uuid="6893b1b0-4dbf-48f3-9296-883603288005"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[,]]></text>
+			</staticText>
+		</band>
+		<band height="100">
+			<subreport>
+				<reportElement x="0" y="0" width="200" height="100" uuid="55749299-117b-4595-963d-96837b9c017c"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{titulares})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subAssinaturas}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="65" splitType="Prevent">
+			<line>
+				<reportElement x="1" y="34" width="230" height="1" uuid="71e41bf6-8dbb-4b95-acc4-9db380bd2cd3"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="8" y="35" width="223" height="19" uuid="cd68f711-557f-4db7-bfac-c25644b16aea"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Assinatura, sob carimbo, do Gerente
+]]></text>
+			</staticText>
+		</band>
+		<band height="213" splitType="Prevent">
+			<staticText>
+				<reportElement x="0" y="4" width="494" height="205" uuid="4ca912ed-4686-4383-9797-f348df28bdac"/>
+				<textElement textAlignment="Center" markup="styled">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[<style isBold="true">SAC CAIXA:</style> 0800 726 0101 (informações, reclamações, sugestões e elogios)
+<style isBold="true">Para Pessoas com deficiência auditiva ou de fala:</style> 0800 726 2492
+<style isBold="true">Ouvidoria:</style> 0800 725 7474
+<style isBold="true">Central de Atendimento: CARTÕES CAIXA:</style>
+4004 0104 (capitais e regiões metropolitanas) 0800 104 0104 (demais localidades)
+<style isBold="true">SAC Cartão de Crédito:</style> 0800 726 0101
+Atendimento disponível 24 horas por dia, 7 dias por semana para atendimento a clientes portadores de cartão de crédito CAIXA para resolução de demandas relativas a reclamações, cancelamento, fornecimento de informações públicas e gerais sobre o cartão de crédito CAIXA, além do registro de sugestões e elogios.
+As informações de caráter particular, que envolvam identificação detalhada do consumidor, para a preservação de sigilo de dados, são tratadas pela Central de Atendimento Cartões CAIXA.
+<style isBold="true">APP Cartões CAIXA:</style> Google Play e Apple Store
+<style isBold="true">caixa.gov.br</style>
+]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50">
+			<staticText>
+				<reportElement x="14" y="14" width="204" height="21" uuid="000db3c5-944f-4ff5-8e80-e2aec0f065ed">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<text><![CDATA[38.252 v007 - micro]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="456" y="14" width="24" height="20" uuid="5f2d4a55-9f99-4a20-ab22-f10bfc06b57a">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
