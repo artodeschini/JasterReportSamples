@@ -1,10 +1,11 @@
-package org.example;
+package org.todeschini;
 
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.*;
 
 /**
@@ -13,8 +14,6 @@ import java.util.*;
 public class App {
     public static void main(String[] args) throws Exception {
         Map<String, Object> parameters = new HashMap();
-
-        parameters.put("SUBREPORT_DIR", "/Users/arturtodeschini//");
 
         TermoSolidariedadeVO vo = new TermoSolidariedadeVO();
         vo.setConta("0003.3701.0005999998689-5");
@@ -32,11 +31,13 @@ public class App {
         vo.getTitulares().add(t1);
         vo.getTitulares().add(t2);
 
-        JasperReport subAssinaturas = getReportByJrxmlFile("");
+        //JasperReport subAssinaturas = getReportByJrxmlFile("/src/main/resources/reports/MO38255_variacao1.jrxml");
+        JasperReport subAssinaturas = getReportByJrxmlFile("/reports/MO38255_variacao1.jrxml");
 
         parameters.put("subAssinaturas",subAssinaturas);
 
-        JasperReport report = getReportByJrxmlFile("/Users/arturtodeschini/MO38255v0001.jrxml");
+//        JasperReport report = getReportByJrxmlFile("/src/main/resources/reports/MO38255v0001.jrxml");
+        JasperReport report = getReportByJrxmlFile("/reports/MO38255v0001.jrxml");
 
         JasperPrint relatorio = JasperFillManager.fillReport(report, parameters, new TermoSolidariedadeDataSource(vo));
         JasperViewer viewer = new JasperViewer(relatorio, false);
@@ -58,10 +59,12 @@ public class App {
     }
 
     public static JasperReport getReportByJrxmlFile(String path) {
-        FileInputStream is = null;
+        //FileInputStream is = null;
+        InputStream is = null;
 
         try {
-            is = new FileInputStream(path);
+//            is = new FileInputStream(path);
+            is = App.class.getResourceAsStream(path);
             return JasperCompileManager.compileReport(is);
 
         } catch (Exception e) {

@@ -1,4 +1,4 @@
-package org.example;
+package org.todeschini;
 
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JRException;
