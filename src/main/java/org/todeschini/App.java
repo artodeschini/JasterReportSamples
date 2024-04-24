@@ -9,7 +9,7 @@ import java.io.InputStream;
 import java.util.*;
 
 /**
- * Hello world!
+ * Applicacao que demonstrar como usar Arquivos .jrxml que geram .jsasper
  */
 public class App {
     public static void main(String[] args) throws Exception {
@@ -45,6 +45,19 @@ public class App {
         viewer.setVisible(true);
         viewer.show();
     }
+
+//    public Downloadable generatePDFReport() {
+//        String data = invokeService();
+//
+//        logger.info("Calling connector to generate the jasperRepoet");
+//        ByteArrayOutputStream pdfReportStream = (ByteArrayOutputStream) jasperConnector.generateReport(JasperExportType.PDF, "jasperReport/restApi.jrxml", new HashMap<>(), data);
+//
+//        DownloadResponse downloadableResponse = new DownloadResponse(new ByteArrayInputStream(pdfReportStream.toByteArray()), "application/pdf", "jasper.pdf");
+//
+//        downloadableResponse.setInline(false);
+//
+//        return downloadableResponse;
+//    }
 
     public static JasperReport getReportByJasoerFile(String path) {
         FileInputStream is = null;
